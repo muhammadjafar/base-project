@@ -64,3 +64,48 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Requirements
+
++ Laravel ^8.12
++ NPM
++ Composer
++ PHP ^7.3|^8.0
++ MySQL
+
+## Instalasi
+
++ Install framework
+
+```bash
+$ composer install
+$ npm ci && npm run dev
+```
+
++ Generate application key
+
+```bash
+$ php artisan key:generate
+```
+
++ Create symlink storage
+
+```bash
+$ php artisan storage:link
+```
+
++ Run migration & seeder
+
+```bash
+$ php artisan migrate --seed
+```
+
+```bash
+$ php artisan vendor:publish --provider="Yajra\DataTables\DataTablesServiceProvider"
+```
+
+
+## Development Guide
+
++ Jika ada perubahan file pada `composer.json` maka jalankan `composer install` untuk update dependensi php. Atau sesuaikan dengan update note di MR-nya.
++ Jika ada perubahan file pada `package-lock.json` atau `package.json` maka jalankan `npm install` untuk update dependensi `node_modules` nya. Atau sesuaikan dengan update note di MR-nya 
