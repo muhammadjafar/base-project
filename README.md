@@ -100,10 +100,6 @@ $ php artisan storage:link
 $ php artisan migrate --seed
 ```
 
-```bash
-$ php artisan vendor:publish --provider="Yajra\DataTables\DataTablesServiceProvider"
-```
-
 
 ## Development Guide
 
