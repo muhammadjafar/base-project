@@ -105,7 +105,3 @@ $ php artisan migrate --seed
 
 + Jika ada perubahan file pada `composer.json` maka jalankan `composer install` untuk update dependensi php. Atau sesuaikan dengan update note di MR-nya.
 + Jika ada perubahan file pada `package-lock.json` atau `package.json` maka jalankan `npm install` untuk update dependensi `node_modules` nya. Atau sesuaikan dengan update note di MR-nya 
-
-
-
-test test
