@@ -15,6 +15,7 @@ mix.js('resources/js/app.js', 'public/js')
     .scripts([
         'public/static/js/app.js'
     ], 'public/js/app.js')
+    .copyDirectory('node_modules/line-awesome', 'public/vendor/line-awesome')
     .postCss('resources/css/app.css', 'public/css', [
         //
     ]);

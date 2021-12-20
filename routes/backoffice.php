@@ -7,5 +7,6 @@ Route::post('/login', 'Auth\LoginController@authenticate');
 
 Route::middleware('auth.backoffice')->group(function(){
     Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
-    Route::get('/dashboard', 'Dashboard\DashboardController@index');
+    Route::get('/dashboard', 'Dashboard\DashboardController@index')->name('backoffice.dashboard');
+    Route::resource('/example', 'Example\ExampleController');
 });

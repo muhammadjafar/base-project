@@ -1,3 +1,4 @@
+@inject('request', 'Illuminate\Http\Request')
 @extends('backoffice.layouts.app')
 
 @section('container')
@@ -12,21 +13,17 @@
                 <li class="sidebar-header">
                     <!-- Pages -->
                 </li>
-                <li class="sidebar-item active">
-                    <a class="sidebar-link" href="#">
+                <li class="sidebar-item {{ $request->segment(2) == 'dashboard' ? 'active' : '' }}">
+                    <a class="sidebar-link" href="{{ route('backoffice.dashboard') }}">
                         <i class="align-middle" data-feather="user"></i> <span class="align-middle">Dashboard</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a data-bs-target="#pages" data-bs-toggle="collapse" class="sidebar-link collapsed">
+                <li class="sidebar-item {{ in_array($request->segment(2) , array('example')) ? 'active' : '' }}">
+                    <a data-bs-target="#pages" data-bs-toggle="collapse" class="sidebar-link {{ !in_array($request->segment(2) , array('example'))  ? 'collapsed' : '' }}">
                         <i class="align-middle" data-feather="layout"></i> <span class="align-middle">Pages</span>
                     </a>
-                    <ul id="pages" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
-                        <li class="sidebar-item"><a class="sidebar-link" href="pages-settings.html">Settings</a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="pages-projects.html">Projects <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="pages-clients.html">Clients <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="pages-pricing.html">Pricing <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
-                        <li class="sidebar-item"><a class="sidebar-link" href="pages-chat.html">Chat <span class="sidebar-badge badge bg-primary">Pro</span></a></li>
+                    <ul id="pages" class="sidebar-dropdown list-unstyled collapse {{ in_array($request->segment(2) , array('example'))  ? 'show' : '' }}" data-bs-parent="#sidebar">
+                        <li class="sidebar-item {{ $request->segment(2) == 'example' ? 'active' : '' }}"><a class="sidebar-link" href="{{ route('example.index') }}">Basic Example Crud</a></li>
                         <li class="sidebar-item"><a class="sidebar-link" href="pages-blank.html">Blank Page</a></li>
                     </ul>
                 </li>
@@ -210,22 +207,22 @@
                 <div class="row text-muted">
                     <div class="col-6 text-start">
                         <p class="mb-0">
-                            <a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>AdminKit</strong></a> &copy;
+                            <a class="text-muted" href="#" target="_blank"><strong>Dafidea</strong></a> &copy;
                         </p>
                     </div>
                     <div class="col-6 text-end">
                         <ul class="list-inline">
                             <li class="list-inline-item">
-                                <a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
+                                <a class="text-muted" href="#" target="_blank">Support</a>
                             </li>
                             <li class="list-inline-item">
-                                <a class="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
+                                <a class="text-muted" href="#" target="_blank">Help Center</a>
                             </li>
                             <li class="list-inline-item">
-                                <a class="text-muted" href="https://adminkit.io/" target="_blank">Privacy</a>
+                                <a class="text-muted" href="#" target="_blank">Privacy</a>
                             </li>
                             <li class="list-inline-item">
-                                <a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
+                                <a class="text-muted" href="#" target="_blank">Terms</a>
                             </li>
                         </ul>
                     </div>
@@ -234,6 +231,5 @@
         </footer>
     </div>
 </div>
-@endsection
-
 @yield('javascript')
+@endsection

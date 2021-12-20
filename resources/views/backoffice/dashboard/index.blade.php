@@ -269,91 +269,12 @@
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-12">
-                <div class="alert alert-warning alert-dismissible" role="alert">
-                    <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
-                    <div class="alert-message">
-                        <h4 class="alert-heading">jQuery required</h4>
-                        <p>
-                            Unlike all other components included in this template, DataTables requires jQuery as a dependency. If you want to use
-                            DataTables in your application, add the following script element to your HTML code. The file includes both jQuery and
-                            DataTables.
-                        </p>
-                        <pre class="h6 text-danger mb-0">&#x3C;script src=&#x22;js/datatables.js&#x22;&#x3E;&#x3C;/script&#x3E;</pre>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title">Responsive DataTables</h5>
-                        <h6 class="card-subtitle text-muted">Highly flexible tool that many advanced features to any HTML table. See official
-                            documentation <a href="https://datatables.net/extensions/responsive/" target="_blank" rel="noopener noreferrer nofollow">here</a>.</h6>
-                    </div>
-                    <div class="card-body">
-                        <table id="datatables-reponsive" class="table table-striped" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Age</th>
-                                    <th>Address</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
     </div>
 </main>
 
 @endsection
 
 @section('javascript')
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
-<script>
-    window.onload = function() {
-        $('#datatables-reponsive').DataTable({
-            "processing": true,
-            "serverSide": true,
-            "ajax": "/backoffice/dashboard",
-            "columns": [{
-                    "data": "id",
-                    render: function(data, type, row, meta) {
-                        return meta.row + meta.settings._iDisplayStart + 1;
-                    }
-                },
-                {
-                    "data": "name"
-                },
-                {
-                    "data": "job"
-                },
-                {
-                    "data": "age"
-                },
-                {
-                    "data": "address"
-                },
-                {
-                    "data": "id",
-                    "class": "text-center",
-                    "render": function(data, type, row) {
-                        return '<div class="d-flex"><a title="Edit" class="btn btn-success btn-sm" href="#">Edit</a>&nbsp;' + '<button title="Hapus" class="btn btn-danger btn-sm">Hapus</button></div>';
-                    }
-                },
-            ],
-        });
-    }
-</script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");

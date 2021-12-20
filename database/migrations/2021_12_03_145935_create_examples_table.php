@@ -19,7 +19,9 @@ class CreateExamplesTable extends Migration
             $table->string('job');
             $table->integer('age');
             $table->string('address');
+            $table->string('image')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

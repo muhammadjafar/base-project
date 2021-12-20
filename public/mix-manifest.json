@@ -1,4 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/vendor/line-awesome/CHANGELOG.md": "/vendor/line-awesome/CHANGELOG.md",
+    "/vendor/line-awesome/LICENSE.md": "/vendor/line-awesome/LICENSE.md",
+    "/vendor/line-awesome/package.json": "/vendor/line-awesome/package.json",
+    "/vendor/line-awesome/README.md": "/vendor/line-awesome/README.md"
 }
