@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Backoffice\Example;
 
+use App\Events\CreatedExample;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backoffice\Example\StoreExampleRequest;
 use App\Http\Requests\Backoffice\Example\UpdateExampleRequest;
-use App\Mail\CreatedExample;
 use App\Models\Example\Example;
 use Exception;
 use Illuminate\Http\Request;
@@ -61,8 +61,8 @@ class ExampleController extends Controller
                 $example->fill($request->all());
                 $example->image = $request->hasFile('image') ? $request->image->store('image', 'public') : null;
                 $example->save();
-
-                Mail::to(auth()->user('web'))->send(new CreatedExample($example));
+                
+                CreatedExample::dispatch(auth()->user('web'), $example);                
             });
             return redirect()->route('example.index');
         } catch (Exception $e) {
